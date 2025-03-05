@@ -1,55 +1,35 @@
+/* General styles remain unchanged */
 #skilltree {
     width: 100%;
     height: 90vh;
     border: 2px solid #4CAF50;
     border-radius: 12px;
     background: linear-gradient(to bottom, #f5f5f5, #eaeaea);
-    position: relative; /* Adicionado para que o overlay seja posicionado relativamente à skilltree */
+    position: relative;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     z-index: 0;
 }
 
+/* Overlay: Fixed width for desktop, full width for mobile */
 #overlay {
-    position: absolute; /* Alterado de 'fixed' para 'absolute' */
-    top: 10px; /* Posicionamento relativo à skilltree */
-    right: 10px; /* Posicionamento relativo à skilltree */
+    position: absolute;
+    top: 10px;
+    right: 10px;
     width: 25%;
-    height: 84vh; /* Ajustado para ser flexível */
-    background-color: rgba(0, 0, 0, 0.7); /* Fundo semitransparente */
+    height: 84vh;
+    background-color: rgba(0, 0, 0, 0.7);
     display: flex;
     flex-direction: column;
-    align-items: center; /* Centraliza horizontalmente */
+    align-items: center;
     padding: 20px;
     text-align: center;
-    border-radius: 8px; /* Bordas arredondadas */
-    color: white; /* Cor do texto */
-    z-index: 1; /* Garante que o overlay fique acima da skilltree */
-}
-
-#comprar {
-    margin-top: auto; /* Move o botão para a parte inferior */
-    display: none;
-    margin-left: auto;
-    margin-right: auto;
-    padding: 10px 20px;
-    background-color: #4CAF50;
+    border-radius: 8px;
     color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+    z-index: 1;
 }
 
-#comprar:hover {
-    background-color: #45a049;
-}
-
-#overlay p {
-    margin-bottom: 15px;
-    font-size: 14px;
-}
-
+/* Responsive Button */
 button {
-    display: inline-block;
     padding: 12px 20px;
     font-size: 16px;
     font-weight: bold;
@@ -60,6 +40,8 @@ button {
     cursor: pointer;
     transition: background 0.3s ease;
     margin-top: 10px;
+    width: 100%; /* Ensure it scales properly on mobile */
+    max-width: 250px;
 }
 
 button:hover {
@@ -67,19 +49,7 @@ button:hover {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-@media (max-width: 768px) {
-    #overlay {
-        width: 90%;
-        max-width: none;
-        top: 10px;
-        right: 10px;
-    }
-
-    #skilltree {
-        height: 400px;
-    }
-}
-
+/* Popup styling */
 .popup {
     display: none;
     position: fixed;
@@ -91,8 +61,11 @@ button:hover {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     border-radius: 5px;
     z-index: 1000;
+    width: 90%; /* Makes sure it doesn’t overflow */
+    max-width: 400px; /* Limits the size on larger screens */
 }
 
+/* Popup buttons */
 .popup button {
     margin: 5px;
     padding: 8px 12px;
@@ -108,4 +81,88 @@ button:hover {
 .popup button#confirmNo {
     background-color: red;
     color: white;
+}
+
+/* ✅ Responsive Adjustments for Tablets & Smaller Screens */
+@media (max-width: 1024px) {
+    #overlay {
+        width: 50%; /* More space for content */
+        height: auto;
+        top: 20px;
+        right: auto;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    #skilltree {
+        height: 80vh; /* Avoids overflow issues */
+    }
+}
+
+/* ✅ Mobile-Friendly Layout */
+@media (max-width: 768px) {
+    #overlay {
+        width: 90%; /* Takes full width */
+        height: auto;
+        top: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+        padding: 15px;
+    }
+
+    #skilltree {
+        height: 400px; /* Prevents layout breaking */
+    }
+
+    button {
+        font-size: 14px;
+        padding: 10px;
+        max-width: 200px; /* Prevents oversized buttons */
+    }
+
+    .popup {
+        width: 95%;
+        max-width: 300px;
+    }
+}
+
+/* ✅ Small Mobile Devices (Phones) */
+@media (max-width: 480px) {
+    #overlay {
+        width: 95%;
+        padding: 10px;
+    }
+
+    #skilltree {
+        height: 350px; /* Further adjust height */
+    }
+
+    button {
+        font-size: 13px;
+        padding: 8px;
+        max-width: 180px;
+    }
+
+    .popup {
+        width: 90%;
+        max-width: 280px;
+    }
+}
+
+
+#comprar {
+    margin-top: auto;
+    display: none;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#comprar:hover {
+    background-color: #45a049;
 }
