@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <script type="text/javascript" src="js/vis.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Árvore de Magia</title>
+    <link href="css/css.css" type="text/css" rel="stylesheet">
+</head>
+<body>
+    <div>
+        <div id="skilltree"></div>
+
+        <div id="overlay">
+            <h1>Pontos de Poder: <span id="visPontos"></span></h1>
+            <h2 id="tituloNode"></h2>
+            <p id="textoNode"></p>
+            <button id="comprar">Comprar melhoria</button>
+        </div>
+
+        <div id="confirm" class="popup">
+            <p id="textoConfirmacao"></p>
+            <button id="confirmYes">Yes</button>
+            <button id="confirmNo">No</button>
+        </div>
+
+        <div style="display: flex; gap: 10px">
+            <button id="salvar">Salvar Árvore</button>
+            <button id="carregar">Carregar Árvore</button>
+        </div>
+    </div>
+    <script src="js/script2.js"></script>
+</body>
+</html>
